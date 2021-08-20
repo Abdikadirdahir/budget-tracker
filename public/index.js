@@ -78,6 +78,17 @@ function populateChart() {
   });
 }
 
+async function saveRecord(transaction){
+  await fetch("/api/transaction", {
+     method: "POST",
+     body: JSON.stringify(transaction),
+     headers: {
+       Accept: "application/json, text/plain, */*",
+       "Content-Type": "application/json"
+     }
+   })
+ }
+
 function sendTransaction(isAdding) {
   let nameEl = document.querySelector("#t-name");
   let amountEl = document.querySelector("#t-amount");
